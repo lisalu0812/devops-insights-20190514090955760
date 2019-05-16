@@ -22,11 +22,28 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom:6, center: auckland});
     var marker = new google.maps.Marker ({position: auckland, map: map});
-    //var marker1 = new google.maps.Marker ({position: ashburton, map: map});
-    var places = [];
+    //
+    //var places = [];
       //Adding a latlng obj for each city
       var ashburton = {lat:-43.89834, lng: 171.73011};
-      places.push(ashburton);
+      var marker1 = new google.maps.Marker ({position: ashburton, map: map});
+      var christchurch = {lat:-43.53333, lng: 172.63333};
+      var marker2 = new google.maps.Marker ({position: christchurch, map: map});
+      var hamilton = {lat:-37.78333, lng:175.28333};
+      var marker3 = new google.maps.Marker ({position: hamilton, map: map});
+      var dunedin = {lat:-45.87416, lng:170.50361};
+      var marker4 = new google.maps.Marker ({position: dunedin, map: map});
+      var nelson = {lat:-41.27078,lng:173.28404};
+      var marker5 = new google.maps.Marker ({position: nelson, map: map});
+      var new_plymouth = {lat:-39.06667, lng:174.08333};
+      var marker6 = new google.maps.Marker ({position: new_plymouth, map: map});
+      var queenstown = {lat:-45.03023,lng:168.66271};
+      var marker7 = new google.maps.Marker ({position: queenstown, map: map});
+      var palmerston_north = {lat:-40.35636, lng: 175.61113};
+      var marker8 = new google.maps.Marker ({position: palmerston_north, map: map});
+      var wellington = {lat:-41.28664,lng:174.77557};
+      var marker9 = new google.maps.Marker ({position: wellington, map: map});
+      //places.push(ashburton);
       //places.push(new google.maps.LatLng(-43.89834, 171.73011));  //Ashburton
       /*places.push(new google.maps.LatLng(-43.53333, 172.63333));  //Christchurch
       places.push(new google.maps.LatLng(-37.78333, 175.28333));  //Hamilton
@@ -38,12 +55,12 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
       places.push(new google.maps.LatLng(-41.28664, 174.77557));  //Wellington
       */
      //Loop through the places array
-     for (var i=0; i< places.length;i++){
+     /*for (var i=0; i< places.length;i++){
      	//Create a new marker
      	var m = new google.map.Marker ({
      		position: places[i],map: map
      	});
-     }
+     }*/
     $scope.zip = function(which) {
 
         var data = "";

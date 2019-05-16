@@ -36,7 +36,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
      //Loop through the places array
      for (var i=0; i< places.length;i++){
      	//Create a new marker
-     	var marker = new google.map.Marker ({
+     	var m = new google.map.Marker ({
      		position: places[i],map: map
      	});
      }

@@ -73,4 +73,68 @@
         });
     	});
     });
+    
+    //Test latLng
+    describe ('Get weather by latLng',function(){
+    	var lat = -36.848461;
+    	var lng = 174.763336;
+    	var latLng = lat + "&lon=" + lng;
+    	it('with valid latLng',function(done){
+    		if(!appUrl){
+    			assert.fail("Environment variable APP_URL is not defined");
+    			return done();
+    		}
+    		request({
+    			method:"GET",
+    			url: appUrl + '/api/v1/getWeatherLatLng?lat='+latLng
+    		},function(err,resp,body){
+    			if(err){
+    				assert.fail('Failed to get the response');
+    			}
+    			else{
+    				assert.equal(resp.statusCode,200);
+    				var pbody = JSON.parse(body);
+    				assert(pbody.city==='Auckland',"City name does not match")
+    			}
+    		});
+    	});
+    	it('without latLng', function(done){
+    		if(!appUrl) {
+    			assert.fail("Environment variable APP_URL is not defined");
+    			return done();
+    		}
+    		request ({
+    			method:"GET",
+    			url:appUrl + '/api/v1/getWeatherLatLng?lat='
+    		},function(err,resp,body){
+    			if(err){
+    				assert.fail('Failed to get the response');
+    			}
+    			else{
+    				assert.equal(resp.statusCode, 400);
+    				done();
+    			}
+    		});
+    	});
+    	it ('with another latLng', function(done){
+    		if(!appUrl){
+    			assert.fail("Environment variable APP_URL is not defined");
+    			return done();
+    		}
+    		request ({
+    			method: "GET",
+    			url: appUrl + '/api/v1/getWeatherLatLng?lat=' + latLng
+    		}, function(err, resp, body){
+    			if(err){
+    				assert.fail('Failed to get the response');
+    			}
+    			else {
+    				assert.equal(resp.statusCode,200);
+    				var pbody = JSON.parse(body);
+    				assert(pbody.city === 'Auckland',"City name does not match");
+    				done();
+    			}
+    		});
+    	});
+    });
 })();

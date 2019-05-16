@@ -78,7 +78,7 @@
     describe ('Get weather by latLng',function(){
     	var lat = -36.8485;
     	var lng = 174.7633;
-    	//var latLng = lat + "&lon=" + lng;
+    	var latLng = lat + "&lon=" + lng;
     	it('with valid latLng',function(done){
     		if(!appUrl){
     			assert.fail("Environment variable APP_URL is not defined");
@@ -86,7 +86,7 @@
     		}
     		request({
     			method:"GET",
-    			url: appUrl + '/api/v1/getWeatherByLatLng?lat='+lat + "&lon=" + lng
+    			url: appUrl + '/api/v1/getWeatherByLatLng?lat='+latLng
     		},function(err,resp,body){
     			if(err){
     				assert.fail('Failed to get the response');
@@ -94,7 +94,7 @@
     			else{
     				assert.equal(resp.statusCode,200);
     				var pbody = JSON.parse(body);
-    				assert(pbody.city==='Hamilton',"City name does not match");
+    				assert(pbody.city==='Auckland',"City name does not match");
     				done();
     			}
     		});
@@ -124,7 +124,7 @@
     		}
     		request ({
     			method: "GET",
-    			url: appUrl + '/api/v1/getWeatherByLatLng?lat=' + lat + "&lon=" + lng
+    			url: appUrl + '/api/v1/getWeatherByLatLng?lat=' + latLng
     		}, function(err, resp, body){
     			if(err){
     				assert.fail('Failed to get the response');
@@ -132,7 +132,7 @@
     			else {
     				assert.equal(resp.statusCode,200);
     				var pbody = JSON.parse(body);
-    				assert(pbody.city === 'Hamilton',"City name does not match");
+    				assert(pbody.city === 'Auckland',"City name does not match");
     				done();
     			}
     		});

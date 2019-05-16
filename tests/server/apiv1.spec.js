@@ -129,8 +129,8 @@ describe ('Get Weather by lat and lng',function() {
 	it ('with valid latlng and error from request call',function(){
 		reqMock = {
 		    query : {
-		    	lat:-36.848461,
-		    	lng:174.763336
+		    	lat:-36.8485,
+		    	lng:174.7633
 		    }	
 		};
 		var request = function (obj, callback){
@@ -147,8 +147,8 @@ describe ('Get Weather by lat and lng',function() {
 	it ('with incomplete latlng',function(){
 		reqMock = {
 		   query:{
-		   	 lat:-36.848461,
-		     lng:174.763336
+		   	 lat:-36.8485,
+		     lng:174.7633
 		   }	
 		};
 		 var request = function( obj, callback ){
@@ -165,8 +165,8 @@ describe ('Get Weather by lat and lng',function() {
 	it('with valid latlng', function() {
       reqMock = {
         query: {
-          lat:-36.848461,
-		  lng:174.763336
+          lat:-36.8485,
+		  lng:174.7633
         }
       };
 

@@ -33,10 +33,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var city;
     	var lat = event.latLng.lat();
     	var lng = event.latLng.lng();
-    	//var latLng = lat +'&lon='+ lng;
+    	var latLng = lat +'&lon='+ lng;
     	$http ({
     		method:"GET",
-    		url: '/api/v1/getWeather?lat=' + lat +'&lon='+ lng
+    		url: '/api/v1/getWeather?lat=' + latLng
     	}).then(function(response){
     		$scope.zip1City = response.data.city;
             $scope.zip1Weather = response.data.weather;

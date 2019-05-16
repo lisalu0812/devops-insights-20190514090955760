@@ -19,7 +19,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 
     var m1,m2,m3,m4;
     var auckland = {lat: -36.848461, lng: 174.763336};
-    //var ashburton = {lat:-43.89834, lng: 171.73011};
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom:6, center: auckland});
     var marker = new google.maps.Marker ({position: auckland, map: map});
@@ -35,10 +34,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var city;
     	var lat = event.latLng.lat();
     	var lng = event.latLng.lng();
-    	var latLng = lat +'&lon='+ lng;
+    	//var latLng = lat +'&lon='+ lng;
     	$http ({
     		method:"GET",
-    		url: '/api/v1/getWeather?lat=' + latLng 
+    		url: '/api/v1/getWeather?lat=' + lat +'&lon='+ lng
     	}).then(function(response){
     		$scope.zip1City = response.data.city;
             $scope.zip1Weather = response.data.weather;

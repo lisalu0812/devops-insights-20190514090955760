@@ -40,7 +40,7 @@ exports.getWeather = function(req, res) {
 };
 router.get('/getWeather', exports.getWeather);
 
-exports.getWeatherLatLng = function(req, res) {
+exports.getWeatherByLatLng = function(req, res) {
 	var latLng = req.query.lat;
 	if ((latLng === null) || (typeof(latLng) === 'undefined')) {
 		return res.status(400).send('latLng missing');
@@ -64,6 +64,7 @@ exports.getWeatherLatLng = function(req, res) {
 		}
 	});
 };
+router.get('/getWeatherByLatLng', exports.getWeatherByLatLng);
 /*
 exports.getWeather2 = function(req, res) {
 	var zip = req.query.zip;

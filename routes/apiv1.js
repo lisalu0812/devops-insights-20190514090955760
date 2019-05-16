@@ -45,7 +45,7 @@ exports.getWeatherByLatLng = function(req, res) {
 	if ((latLng === null) || (typeof(latLng) === 'undefined')) {
 		return res.status(400).send('latLng missing');
 	}
-	var aurl = OPENWEATHERURL + '&lat='+req.query.lat +'&lon='+req.query.lng;
+	var aurl = OPENWEATHERURL + '&lat=' + req.query.lat +'&lon='+req.query.lng;
 	request ({
 		method: "GET",
 		url:aurl,
@@ -59,7 +59,7 @@ exports.getWeatherByLatLng = function(req, res) {
 				var response = {city: body.name, weather: weath};
 				return res.status(200).send(response);
 			}else {
-				return res.status(400).send({msg: 'Failed'});
+				return res.status(400).send('Failed: ' + req.query);  //{msg: 'Failed'}
 			}
 		}
 	});

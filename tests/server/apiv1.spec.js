@@ -114,6 +114,7 @@
   });
 
 
+//Test getWeatherLatLng
 describe ('Get Weather by latlng',function() {
 	it ('without latlng',function(){
 		reqMock = {
@@ -134,8 +135,10 @@ describe ('Get Weather by latlng',function() {
 		var request = function (obj, callback){
 			callback("error", null, null);
 		};
-		apiv1._set_("request",request);
-		apiv1.getWeatherLatLng(reqMock,resMock);
+		apiv1.__set__("request", request);
+
+      apiv1.getWeatherLatLng(reqMock, resMock);
+
 		assert(resMock.status.lastCall.calledWith(400),'Unexpexted response:'+ resMock.status.lastCall.args);
 		assert(resMock.send.lastCall.calledWith('Failed to get the data'),'Unexpected response:'+resMock.send.lastCall.args);
 	});
@@ -150,7 +153,9 @@ describe ('Get Weather by latlng',function() {
              callback(null, null, {});
          }
           apiv1.__set__("request", request);
-          apiv1.getWeatherLatLng(reqMock, resMock);
+
+      apiv1.getWeatherLatLng(reqMock, resMock);
+
           assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
           assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
 		});

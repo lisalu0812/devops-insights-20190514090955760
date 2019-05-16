@@ -86,7 +86,7 @@
     		}
     		request({
     			method:"GET",
-    			url: appUrl + '/api/v1/getWeatherLatLng?lat='+lat + "&lon=" + lng
+    			url: appUrl + '/api/v1/getWeatherByLatLng?lat='+lat + "&lon=" + lng
     		},function(err,resp,body){
     			if(err){
     				assert.fail('Failed to get the response');
@@ -105,7 +105,7 @@
     		}
     		request ({
     			method:"GET",
-    			url:appUrl + '/api/v1/getWeatherLatLng?lat='
+    			url:appUrl + '/api/v1/getWeatherByLatLng?lat='
     		},function(err,resp,body){
     			if(err){
     				assert.fail('Failed to get the response');
@@ -123,7 +123,7 @@
     		}
     		request ({
     			method: "GET",
-    			url: appUrl + '/api/v1/getWeatherLatLng?lat=' + lat + "&lon=" + lng
+    			url: appUrl + '/api/v1/getWeatherByLatLng?lat=' + lat + "&lon=" + lng
     		}, function(err, resp, body){
     			if(err){
     				assert.fail('Failed to get the response');

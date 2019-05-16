@@ -78,7 +78,7 @@
     describe ('Get weather by latLng',function(){
     	var lat = -36.848461;
     	var lng = 174.763336;
-    	var latLng = lat + "&lon=" + lng;
+    	//var latLng = lat + "&lon=" + lng;
     	it('with valid latLng',function(done){
     		if(!appUrl){
     			assert.fail("Environment variable APP_URL is not defined");
@@ -86,7 +86,7 @@
     		}
     		request({
     			method:"GET",
-    			url: appUrl + '/api/v1/getWeatherLatLng?lat='+latLng
+    			url: appUrl + '/api/v1/getWeatherLatLng?lat='+lat + "&lon=" + lng
     		},function(err,resp,body){
     			if(err){
     				assert.fail('Failed to get the response');
@@ -123,7 +123,7 @@
     		}
     		request ({
     			method: "GET",
-    			url: appUrl + '/api/v1/getWeatherLatLng?lat=' + latLng
+    			url: appUrl + '/api/v1/getWeatherLatLng?lat=' + lat + "&lon=" + lng
     		}, function(err, resp, body){
     			if(err){
     				assert.fail('Failed to get the response');

@@ -41,11 +41,11 @@ exports.getWeather = function(req, res) {
 router.get('/getWeather', exports.getWeather);
 
 exports.getWeatherByLatLng = function(req, res) {
-	var latLng = req.query.lat;
-	if ((latLng === null) || (typeof(latLng) === 'undefined')) {
-		return res.status(400).send('latLng missing');
+	var latlng = req.query.lat;
+	if ((latlng === null) || (typeof(latlng) === 'undefined')) {
+		return res.status(400).send('latlng missing');
 	}
-	var aurl = OPENWEATHERURL + '&lat=' + req.query.lat +'&lon='+req.query.lng;
+	var aurl = OPENWEATHERURL + '&lat=' + req.query.lat +'&lon='+req.query.lon;
 	request ({
 		method: "GET",
 		url:aurl,

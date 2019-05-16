@@ -150,7 +150,7 @@ describe ('Get Weather by latlng',function() {
              callback(null, null, {});
          }
           apiv1.__set__("request", request);
-          apiv1.getWeather2(reqMock, resMock);
+          apiv1.getWeatherLatLng(reqMock, resMock);
           assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
           assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
 		});
@@ -181,7 +181,7 @@ describe ('Get Weather by latlng',function() {
 
       apiv1.__set__("request", request);
 
-      apiv1.getWeather2(reqMock, resMock);
+      apiv1.getWeatherLatLng(reqMock, resMock);
 
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'Auckland', 'Unexpected response:' + resMock.send.lastCall.args[0].city);

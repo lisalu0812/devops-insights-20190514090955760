@@ -24,9 +24,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var marker = new google.maps.Marker ({position: auckland, map: map});
  
      
-     var latLng = "";
       var infowindow = new google.maps.InfoWindow({
-      	   content: latLng
+      	   content: "GOOGLE MAP"
       });
      
     map.addListener ('click', function(event){

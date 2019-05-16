@@ -40,6 +40,30 @@ exports.getWeather = function(req, res) {
 };
 router.get('/getWeather', exports.getWeather);
 
+exports.getWeatherLatLng = function(req, res) {
+	var latLng = req.query.lat;
+	if ((latLng === null) || (typeof(latLng) === 'undefined')) {
+		return res.status(400).send('latLng missing');
+	}
+	var aurl = OPENWEATHERURL + '&lat='+req.query.lat +'&lon='+req.query.lng;
+	request ({
+		method: "GET",
+		url:aurl,
+		json:true
+	},function (err,resp,body){
+		if(err) {
+			res.status(400).send('Failed to get the data');
+		} else {
+			if(body.cod === 200) {
+				var weath = "Conditions are "+body.weather[0].main + " and temperature is "+ body.main.temp + ' C';
+				var response = {city: body.name, weather: weath};
+				return res.status(200).send(response);
+			}else {
+				return res.status(400).send({msg: 'Failed'});
+			}
+		}
+	});
+};
 /*
 exports.getWeather2 = function(req, res) {
 	var zip = req.query.zip;

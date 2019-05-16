@@ -18,10 +18,12 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1Weather = "";
 
     var auckland = {lat: -36.848461, lng: 174.763336};
+    var ashburton = {lat:-43.89834, lng: 171.73011};
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom:6, center: auckland});
     var marker = new google.maps.Marker ({position: auckland, map: map});
-    var places = [];
+    var marker1 = new google.maps.Marker ({position: ashburton, map: map});
+    /*var places = [];
       //Adding a latlng obj for each city
       var ashburton = {lat:-43.89834, lng: 171.73011};
       places.push(ashburton);
@@ -41,7 +43,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
      	var m = new google.map.Marker ({
      		position: places[i],map: map
      	});
-     }
+     }*/
     $scope.zip = function(which) {
 
         var data = "";

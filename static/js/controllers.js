@@ -17,7 +17,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.zip1City = "";
     $scope.zip1Weather = "";
 
-    var m1,m2,m3,m4
+    var m1,m2,m3,m4;
     var auckland = {lat: -36.848461, lng: 174.763336};
     //var ashburton = {lat:-43.89834, lng: 171.73011};
     var map = new google.maps.Map(

@@ -24,7 +24,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var marker = new google.maps.Marker ({position: auckland, map: map});
  
      
-      var infowindow = new google.maps.InfoWindow({
+    var infowindow = new google.maps.InfoWindow({
       	   content: "GOOGLE MAP"
       });
      
@@ -32,11 +32,11 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	marker = new google.maps.Marker({position:event.latLng,map:map});
     	var city;
     	var lat = event.latLng.lat();
-    	var lng = event.latLng.lng();
-    	var latLng = lat +'&lon='+ lng;
+    	var lon = event.latLng.lng();
+    	var latLng = lat +'&lon='+ lon;
     	$http ({
     		method:"GET",
-    		url: '/api/v1/getWeather?lat=' + latLng
+    		url: '/api/v1/getWeatherByLatLng?lat=' + latLng
     	}).then(function(response){
     		$scope.zip1City = response.data.city;
             $scope.zip1Weather = response.data.weather;

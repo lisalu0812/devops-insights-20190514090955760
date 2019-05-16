@@ -76,8 +76,8 @@
     
     //Test latLng
     describe ('Get weather by latLng',function(){
-    	var lat = -36.848461;
-    	var lng = 174.763336;
+    	var lat = -36.8485;
+    	var lng = 174.7633;
     	//var latLng = lat + "&lon=" + lng;
     	it('with valid latLng',function(done){
     		if(!appUrl){

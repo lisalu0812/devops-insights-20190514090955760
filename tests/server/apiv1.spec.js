@@ -115,7 +115,7 @@
 
 
 //Test getWeatherLatLng
-describe ('Get Weather by latlng',function() {
+describe ('Get Weather by lat and lng',function() {
 	it ('without latlng',function(){
 		reqMock = {
 			query: {
@@ -125,6 +125,7 @@ describe ('Get Weather by latlng',function() {
 	  apiv1.getWeatherByLatLng(reqMock,resMock);
 	  assert(resMock.status.lastCall.calledWith(400),'Unexpected status code:' + resMock.status.lastCall.args);
 	});
+	
 	it ('with valid latlng and error from request call',function(){
 		reqMock = {
 		    query : {
@@ -142,6 +143,7 @@ describe ('Get Weather by latlng',function() {
 		assert(resMock.status.lastCall.calledWith(400),'Unexpexted response:'+ resMock.status.lastCall.args);
 		assert(resMock.send.lastCall.calledWith('Failed to get the data'),'Unexpected response:'+resMock.send.lastCall.args);
 	});
+	
 	it ('with incomplete latlng',function(){
 		reqMock = {
 		   query:{
@@ -159,7 +161,8 @@ describe ('Get Weather by latlng',function() {
           assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
           assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
 		});
-	it('with valid zip code', function() {
+		
+	it('with valid latlng', function() {
       reqMock = {
         query: {
           lat:-36.848461,

@@ -23,7 +23,9 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var marker = new google.maps.Marker ({position: auckland, map: map});
     var places = [];
       //Adding a latlng obj for each city
-      places.push(new google.maps.LatLng(-43.89834, 171.73011));  //Ashburton
+      var ashburton = {lat:-43.89834, lng: 171.73011};
+      places.push(ashburton);
+      //places.push(new google.maps.LatLng(-43.89834, 171.73011));  //Ashburton
       places.push(new google.maps.LatLng(-43.53333, 172.63333));  //Christchurch
       places.push(new google.maps.LatLng(-37.78333, 175.28333));  //Hamilton
       places.push(new google.maps.LatLng(-45.87416, 170.50361));  //Dunedin

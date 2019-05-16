@@ -143,7 +143,7 @@ describe ('Get Weather by lat and lng',function() {
 		assert(resMock.status.lastCall.calledWith(400),'Unexpexted response:'+ resMock.status.lastCall.args);
 		assert(resMock.send.lastCall.calledWith('Failed to get the data'),'Unexpected response:'+resMock.send.lastCall.args);
 	});
-	
+	/*
 	it ('with incomplete latlng',function(){
 		reqMock = {
 		   query:{
@@ -160,7 +160,7 @@ describe ('Get Weather by lat and lng',function() {
 
           assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
           assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
-		});
+		});*/
 		
 	it('with valid latlng', function() {
       reqMock = {

@@ -12,7 +12,7 @@
     });
 
     var appUrl = process.env.APP_URL;
-    console.log(appUrl);
+    //console.log(appUrl);
 
     describe('Get Weather', function() {
 
@@ -78,16 +78,16 @@
     //Test latLng
     describe ('Get weather by latLng',function(){
     	var lat = -36.8485;
-    	var lng = 174.7633;
-    	var latLng = lat + "&lon=" + lng;
-    	it('with valid latLng',function(done){
+    	var lon = 174.7633;
+    	var latlng = lat + "&lon=" + lon;
+    	it('with valid latlng',function(done){
     		if(!appUrl){
     			assert.fail("Environment variable APP_URL is not defined");
     			return done();
     		}
     		request({
     			method:"GET",
-    			url: appUrl + '/api/v1/getWeatherByLatLng?lat='+latLng
+    			url: appUrl + '/api/v1/getWeatherByLatLng?lat='+latlng
     		},function(err,resp,body){
     			if(err){
     				assert.fail('Failed to get the response');
@@ -100,7 +100,7 @@
     			}
     		});
     	});
-    	it('without latLng', function(done){
+    	it('without latlng', function(done){
     		if(!appUrl) {
     			assert.fail("Environment variable APP_URL is not defined");
     			return done();

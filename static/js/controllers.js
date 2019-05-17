@@ -24,10 +24,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var marker = new google.maps.Marker ({position: auckland, map: map});
  
      
-    var infowindow = new google.maps.InfoWindow({
+    /*var infowindow = new google.maps.InfoWindow({
       	   content: "GOOGLE MAP"
       });
-     
+*/     
     google.maps.addListener (map, 'click', function(event){
     	marker = new google.maps.Marker({position:event.latLng,map:map});
     	var city;
@@ -42,10 +42,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             $scope.zip1Weather = response.data.weather;
             $scope.zip1m = "";
     	});
+    	var infowindow = new google.maps.InfoWindow({
+      	   content: $scope.zip1City+" "+$scope.zip1Weather
+      });
+    	infowindow.open (map,marker);  
     }); 
      
       
-    infowindow.open (map,marker);  
+    
     $scope.zip = function(which) {
 
         var data = "";
@@ -103,19 +107,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             if(which === 1) {
                     $scope.zip1City = "";
                     $scope.zip1Weather = "";
-                    m1.setVisible(false);
+                    //m1.setVisible(false);
                 } else if(which === 2) {
                     $scope.zip2City = "";
                     $scope.zip2Weather = "";
-                    m2.setVisible(false);
+                    //m2.setVisible(false);
                 } else if(which === 3) {
                     $scope.zip3City = "";
                     $scope.zip3Weather = "";
-                    m3.setVisible(false);
+                    //m3.setVisible(false);
                 } else if(which === 4) {
                     $scope.zip4City = "";
                     $scope.zip4Weather = "";
-                    m4.setVisible(false);
+                    //m4.setVisible(false);
                 } 
         }
     };

@@ -12,7 +12,7 @@
     });
 
     var appUrl = process.env.APP_URL;
-    console.log(appUrl);
+    console.log(appUrl); //version 2
 
     describe('Get Weather', function() {
 

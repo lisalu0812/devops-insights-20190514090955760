@@ -86,7 +86,7 @@
     			return done();
     		}
     		request({
-    			method:"GET",
+    			method:'GET',
     			url: appUrl + '/api/v1/getWeatherByLatLng?lat='+latlng
     		},function(err,resp,body){
     			if(err){
@@ -106,7 +106,7 @@
     			return done();
     		}
     		request ({
-    			method:"GET",
+    			method:'GET',
     			url:appUrl + '/api/v1/getWeatherByLatLng?lat='
     		},function(err,resp,body){
     			if(err){
@@ -124,7 +124,7 @@
     			return done();
     		}
     		request ({
-    			method: "GET",
+    			method: 'GET',
     			url: appUrl + '/api/v1/getWeatherByLatLng?lat=' + latlng
     		}, function(err, resp, body){
     			if(err){

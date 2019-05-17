@@ -28,7 +28,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
       	   content: "GOOGLE MAP"
       });
      
-    google.maps.addListener (map, 'click', function(event){
+    google.maps.addListener(map, 'click', function(event){
         marker = new google.maps.Marker({position:event.latLng,map:map});
     	var city;
     	var lat = event.latLng.lat();

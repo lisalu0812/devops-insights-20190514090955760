@@ -130,7 +130,7 @@ describe ('Get Weather by lat and lng',function() {
 		reqMock = {
 		    query : {
 		    	lat:-36.8485,
-		    	lng:174.7633
+		    	lon:174.7633
 		    }	
 		};
 		var request = function (obj, callback){
@@ -148,7 +148,7 @@ describe ('Get Weather by lat and lng',function() {
 		reqMock = {
 		   query:{
 		   	 lat:-36.8485,
-		     lng:174.7633
+		     lon:174.7633
 		   }	
 		};
 		 var request = function( obj, callback ){
@@ -166,7 +166,7 @@ describe ('Get Weather by lat and lng',function() {
       reqMock = {
         query: {
           lat:-36.8485,
-		  lng:174.7633
+		  lon:174.7633
         }
       };
 

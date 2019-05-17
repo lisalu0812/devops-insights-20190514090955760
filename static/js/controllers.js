@@ -20,16 +20,16 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     var m1,m2,m3,m4;
     //var auckland = {lat: -36.848461, lng: 174.763336};
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom:6, center: auckland});
+        document.getElementById('map'), {zoom:6, center: {lat: -36.848461, lng: 174.763336}});
     //var marker = new google.maps.Marker ({position: auckland, map: map});
- 
+    var marker;
      
-    /*var infowindow = new google.maps.InfoWindow({
+    var infowindow = new google.maps.InfoWindow({
       	   content: "GOOGLE MAP"
       });
-*/     
+     
     google.maps.addListener (map, 'click', function(event){
-    	var marker = new google.maps.Marker({position:event.latLng,map:map});
+        marker = new google.maps.Marker({position:event.latLng,map:map});
     	var city;
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
@@ -42,13 +42,9 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             $scope.zip1Weather = response.data.weather;
             $scope.zip1m = "";
     	});
-    	var infowindow = new google.maps.InfoWindow({
-      	   content: $scope.zip1City+" "+$scope.zip1Weather
-      });
-    	infowindow.open (map,marker);  
     }); 
      
-      
+      infowindow.open(map,marker);
     
     $scope.zip = function(which) {
 
